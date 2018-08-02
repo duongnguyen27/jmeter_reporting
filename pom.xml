@@ -27,4 +27,19 @@
 			<version>3.17</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+			<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>com.dn.jmeter.reporting.AppRunner</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
