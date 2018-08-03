@@ -30,14 +30,23 @@
 	<build>
 		<plugins>
 			<plugin>
-			<artifactId>maven-jar-plugin</artifactId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 							<mainClass>com.dn.jmeter.reporting.AppRunner</mainClass>
-						</manifest>
-					</archive>
+						</transformer>
+					</transformers>
 				</configuration>
 			</plugin>
 		</plugins>

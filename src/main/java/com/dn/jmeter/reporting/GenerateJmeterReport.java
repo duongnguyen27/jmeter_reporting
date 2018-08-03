@@ -33,7 +33,6 @@ public class GenerateJmeterReport {
 			if (!Character.isDigit(cellValue.charAt(0))) {
 				sheet.groupRow(fromRow, row.getRowNum() - 1);
 				sheet.setRowSumsBelow(true);
-				sheet.setRowGroupCollapsed(row.getRowNum(), true);
 				fromRow = row.getRowNum() + 1;
 			}
 		}
@@ -47,7 +46,7 @@ public class GenerateJmeterReport {
 
 	public void copyCsvToExcel(String csv, String excel) throws IOException {
 		XSSFWorkbook workbook = new XSSFWorkbook();
-		XSSFSheet sheet = workbook.createSheet();
+		XSSFSheet sheet = workbook.createSheet("Report");
 		File csvFile = new File(csv);
 		BufferedReader bufRdr = new BufferedReader(new FileReader(csvFile));
 		int rowNum = 0;
