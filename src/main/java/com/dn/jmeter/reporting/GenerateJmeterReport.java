@@ -89,7 +89,9 @@ public class GenerateJmeterReport {
 		// Sort by index ascending
 		Collections.sort(lines, new Comparator<String[]>() {
 			public int compare(String[] one, String[] other) {
-				return one[0].compareTo(other[0]);
+				int index1 = Integer.parseInt(one[0].substring(0, one[0].indexOf("_")));
+				int index2 = Integer.parseInt(other[0].substring(0, other[0].indexOf("_")));
+				return ((Integer) index1).compareTo(index2);
 			}
 		});
 
