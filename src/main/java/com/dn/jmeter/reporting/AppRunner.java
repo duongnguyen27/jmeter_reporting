@@ -4,10 +4,18 @@ import java.io.IOException;
 
 public class AppRunner {
 	public static void main(String[] args) throws IOException {
-		String csvFile = args[0];
-		String excelFile = args[1];
 		GenerateJmeterReport gr = new GenerateJmeterReport();
-		gr.copyCsvToExcel(csvFile, excelFile);
-		gr.groupRows(excelFile);
+		String type = args[0];
+		String arg1 = args[1];
+		String arg2 = args[2];
+		
+		if (type.equalsIgnoreCase("CollectLog")) {
+			gr.collectLog(arg1, arg2);
+		}
+		
+		if (type.equalsIgnoreCase("Generate")) {
+			gr.copyCsvToExcel(arg1, arg2);
+			gr.groupRows(arg2);			
+		}
 	}
 }
